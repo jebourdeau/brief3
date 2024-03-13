@@ -1,0 +1,270 @@
+/* Réinitialisation de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgba(3,126,203,255);
+  width: 100vw;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: 100vw;
+}
+
+/* ----------- Page index ----------*/
+
+.accueil {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  height: 60vh;
+}
+
+.accueil img {
+  max-width: 100%;
+  height: auto;
+}
+
+.tri button {
+  padding: 5px;
+  margin-left: 20px;
+  background-color: rgb(175, 175, 175);
+}
+
+
+button {
+  background-color : rgba(11,156,221,255);
+  border: 5px solid rgba(37,108,180,255);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+
+button:hover {
+  opacity: 0.5;
+}
+
+.films-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: auto;
+  width: 100%;
+  align-items: flex-start;
+  margin: auto;
+}
+
+.grid-films h2 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 90px;
+  text-align: center;
+  font-size: 1.2em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: rgba(39,77,124,255);
+}
+
+.film-details h2 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-decoration:underline;
+  color: rgba(39,77,124,255);
+}
+
+.film-details p {
+  padding-left: 10px;
+}
+
+.grid-films {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin: 20px;
+  gap: 20px;
+}
+
+.grid-films img {
+  align-items: end;
+  width: 100%;
+  object-fit: contain;
+}
+/*---------------- Page détails --------------*/
+
+.retour{
+  color: white;
+  justify-content: left;
+  display: flex;
+}
+
+.film-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.film-card {
+  width: calc(50% - 20px);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.film-card a {
+  text-decoration: none;
+  color: black;
+}
+
+.film-card img {
+  width: 100%;
+  height: auto;
+}
+
+.film-card h2, .film-card p {
+  padding: 0 15px;
+}
+
+.film-details {
+  padding: 20px;
+}
+
+.film-details img {
+  width: 100%;
+  height: auto;
+}
+
+.film-recommendations {
+  margin-top: 20px;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.recommendation-card {
+  flex: 0 0 auto; /* Les éléments ne grandissent pas, ne rétrécissent pas, mais sont basés sur leur largeur */
+  width: 160px; /* Définissez une largeur fixe pour chaque carte de recommandation */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.recommendation-card img {
+  width: 100%;
+  height: auto;
+  display: block; /* Élimine l'espace sous les images */
+}
+
+.recommendation-card h3 {
+  font-size: 1rem;
+  padding: 5px;
+  text-align: center;
+}
+
+/* Ajoutez des styles pour gérer les barres de défilement sur différents navigateurs */
+.scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #efefef;
+}
+
+@media (min-width: 600px) {
+  .film-card {
+      width: calc(33.333% - 20px);
+  }
+
+  .film-details img {
+      max-height: 600px; /* limite la hauteur de l'image pour éviter qu'elle soit trop grande */
+      object-fit: contain; /* assure que l'image couvre la zone définie sans perdre son ratio d'aspect */
+      margin-right: 20px; /* ajoute un peu d'espace entre l'image et le texte à côté */
+  }
+
+  .film-details > * {
+      flex: 1; /* donne une flexibilité égale aux éléments enfants direct de .film-details, permettant un arrangement plus équilibré */
+  }
+}
+
+@media (min-width: 900px) {
+  .film-card {
+      width: calc(25% - 20px);
+  }
+}
+
+
+/* media-queires pour l'affichage du tableau de film en bas de page */
+
+@media screen and (max-width: 1200px) {
+  .grid-films {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 15px;
+  }
+}
+
+
+@media screen and (max-width: 1000px) {
+  .grid-films {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 15px;
+  }
+
+  .grid-films h2 {
+    width: 130px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .grid-films {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .grid-films h2 {
+    width: 250px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .grid-films {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .grid-films h2 {
+    width: 400px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* media-queries pour l'affichage du background */
+
+  .accueil {
+    height: 100%;
+  }
+}
+
